@@ -1,0 +1,27 @@
+﻿@using MVC.Controllers;
+@model List<Employee>
+
+<table id="AllEmployees" class="display">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="Col">Id</th>
+            <th scope="Col">Name</th>
+            <th scope="Col">Salary</th>
+            <th scope="Col">Created By</th>
+            <th scope="Col">Created on</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="Col">@item.Id</td>
+                <td scope="Col">@item.Name</td>
+                <td scope="Col">@item.Salary</td>
+                <td scope="Col">@item.CreatedBy</td>
+                <td scope="Col">@item.CreatedOn</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
