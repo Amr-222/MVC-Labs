@@ -1,0 +1,65 @@
+﻿@model MVC.DTO.EmployeeDTO
+
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @(ViewBag.ActiveTab == "add" || ViewBag.ActiveTab == null ? "active" : "")"
+                   id="add-tab" data-bs-toggle="tab" href="#add" role="tab"
+                   aria-controls="add" aria-selected="true" onclick="clearForm('add')">Add</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @(ViewBag.ActiveTab == "edit" ? "active" : "")"
+                   id="edit-tab" data-bs-toggle="tab" href="#edit" role="tab"
+                   aria-controls="edit" aria-selected="false" onclick="clearForm('edit')">Edit</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @(ViewBag.ActiveTab == "delete" ? "active" : "")"
+                   id="delete-tab" data-bs-toggle="tab" href="#delete" role="tab"
+                   aria-controls="delete" aria-selected="false" onclick="clearForm('delete')">Delete</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card-body tab-content" id="myTabContent">
+        <!-- Add -->
+        <div class="tab-pane fade @(ViewBag.ActiveTab == "add" || ViewBag.ActiveTab == null ? "show active" : "")"
+             id="add" role="tabpanel" aria-labelledby="add-tab">
+            @Html.Partial("Create")
+        </div>
+
+        <!-- Edit -->
+        <div class="tab-pane fade @(ViewBag.ActiveTab == "edit" ? "show active" : "")"
+             id="edit" role="tabpanel" aria-labelledby="edit-tab">
+            @Html.Partial("Edit")
+        </div>
+
+        <!-- Delete -->
+        <div class="tab-pane fade @(ViewBag.ActiveTab == "delete" ? "show active" : "")"
+             id="delete" role="tabpanel" aria-labelledby="delete-tab">
+            @Html.Partial("Delete")
+        </div>
+    </div>
+</div>
+
+<script>
+    function clearForm(tabId) {
+        const tabElement = document.getElementById(tabId);
+        if (!tabElement) return;
+
+        const inputs = tabElement.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.value = '';
+        });
+
+        const textareas = tabElement.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            textarea.value = '';
+        });
+
+        const selects = tabElement.querySelectorAll('select');
+        selects.forEach(select => {
+            select.selectedIndex = 0;
+        });
+    }
+</script>

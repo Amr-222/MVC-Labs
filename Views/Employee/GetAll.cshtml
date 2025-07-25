@@ -6,9 +6,12 @@
         <tr>
             <th scope="Col">Id</th>
             <th scope="Col">Name</th>
+            <th scope="Col">Age</th>
             <th scope="Col">Salary</th>
             <th scope="Col">Created By</th>
             <th scope="Col">Created on</th>
+            <th scope="Col">Status</th>
+
         </tr>
     </thead>
     <tbody>
@@ -17,9 +20,20 @@
             <tr>
                 <td scope="Col">@item.Id</td>
                 <td scope="Col">@item.Name</td>
+                <th scope="Col">@item.Age</th>
                 <td scope="Col">@item.Salary</td>
                 <td scope="Col">@item.CreatedBy</td>
                 <td scope="Col">@item.CreatedOn</td>
+                <td scope="Col">
+                    @if (item.IsDeleted == true)
+                {
+                        <span class="badge bg-danger">Deleted</span>
+                }
+                else
+                {
+                    <span class="badge bg-success">Active</span>
+                }
+                </td>
             </tr>
         }
     </tbody>

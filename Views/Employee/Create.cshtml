@@ -1,0 +1,19 @@
+﻿@model MVC.DTO.EmployeeDTO
+<form asp-controller="Employee" asp-action="SaveEmployee" class="text-start">
+    <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name</label>
+        <input asp-for="name" type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputAge" class="form-label">Age</label>
+        <input asp-for="age" type="text" class="form-control" id="exampleInputAge" aria-describedby="AgeHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputSalary" class="form-label">Salary</label>
+        <input asp-for="salary" type="text" class="form-control" id="exampleInputSalary" aria-describedby="SalaryHelp">
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Add</button>
+    </div>
+</form>
